@@ -20,7 +20,7 @@ Die Anleitung ist in mehrere Abschnitte unterteilt:
 
 
 ## **Vorbereitung**
-
+<a href="#vorwort">nach oben</a>
 ### ***System aktualisieren***
 
 ```
@@ -192,7 +192,7 @@ sudo apt install nodejs
 ---
 
 ## **MagicMirror**
-
+<a href="#vorwort">nach oben</a>
 ### ***Installation MagicMirror***
 
 ```
@@ -245,7 +245,7 @@ ipWhitelist: ["127.0.0.1",
 ---
 
 ## **PM2 (Prozessmanager)**
-
+<a href="#vorwort">nach oben</a>
 ### ***Installation PM2***
 
 ```
@@ -294,7 +294,7 @@ pm2 save
 ---
 
 ## **Module**
-
+<a href="#vorwort">nach oben</a>
 Diese Module sind die, die ich aktuell auf meinem MagicMirror verwende. Sie können frei angepasst werden, basierend auf den Dokumentationen in den jeweiligen GitHub-Repositories.
 
 - Übersicht über ThirdParty-Module
@@ -434,7 +434,7 @@ Diese Module sind die, die ich aktuell auf meinem MagicMirror verwende. Sie kön
 ---
 
 ## **iCloud Sync**
-
+<a href="#vorwort">nach oben</a>
 ### ***Vorbereitung***
 
 ```
@@ -689,7 +689,7 @@ Diese Methode zeigt in der Übersicht genau das an, was ich haben möchte.
 ---
 
 # ***Energieeinstellungen***
-
+<a href="#vorwort">nach oben</a>
 Um den Stromverbrauch des Raspberry Pi zu reduzieren, nutze ich die Automatisierung von Cron.d für nächtliche Abschaltungen. 
 
 Das System soll sich zu einer festgelegten Uhrzeit selbst herunterfahren. Zuvor wird der MagicMirror ordnungsgemäß beendet, um mögliche Schäden zu vermeiden.
@@ -788,7 +788,7 @@ Dieser Befehl muss an erster Stelle stehen. Dadurch werden bei jedem Neustart de
 Alternativ kann auch ein Shell-Skript geschrieben und dieses in Crontab eingefügt werden. Siehe mmstop.sh
 
 # **Troubleshooting**
-
+<a href="#vorwort">nach oben</a>
 Um nicht ständig Logdateien über das Terminal auslesen zu müssen, bietet WinSCP eine praktische Alternative: https://winscp.net/eng/docs/lang:de
 
 ### PM2
