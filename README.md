@@ -295,6 +295,7 @@ pm2 save
 
 ## **Module**
 <a href="#vorwort">nach oben</a>
+
 Diese Module sind die, die ich aktuell auf meinem MagicMirror verwende. Sie können frei angepasst werden, basierend auf den Dokumentationen in den jeweiligen GitHub-Repositories.
 
 - Übersicht über ThirdParty-Module
@@ -690,6 +691,7 @@ Diese Methode zeigt in der Übersicht genau das an, was ich haben möchte.
 
 # ***Energieeinstellungen***
 <a href="#vorwort">nach oben</a>
+
 Um den Stromverbrauch des Raspberry Pi zu reduzieren, nutze ich die Automatisierung von Cron.d für nächtliche Abschaltungen. 
 
 Das System soll sich zu einer festgelegten Uhrzeit selbst herunterfahren. Zuvor wird der MagicMirror ordnungsgemäß beendet, um mögliche Schäden zu vermeiden.
@@ -789,6 +791,7 @@ Alternativ kann auch ein Shell-Skript geschrieben und dieses in Crontab eingefü
 
 # **Troubleshooting**
 <a href="#vorwort">nach oben</a>
+
 Um nicht ständig Logdateien über das Terminal auslesen zu müssen, bietet WinSCP eine praktische Alternative: https://winscp.net/eng/docs/lang:de
 
 ### PM2
