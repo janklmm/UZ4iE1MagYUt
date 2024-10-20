@@ -6,14 +6,13 @@ Diese Anleitung beschreibt die Installation eines MagicMirror auf einem Raspberr
 
 Die Anleitung ist in mehrere Abschnitte unterteilt:
 
-[Systemvorbereitung und Software-Installation](#vorbereitung)
 - <a href="#vorbereitung">Systemvorbereitung und Software-Installation</a>
-- MagicMirror-Installation und -Konfiguration
-- PM2-Einrichtung
-- Modulintegration
-- iCloud-Synchronisation
-- Energieeinstellungen
-- Troubleshooting
+- <a href="#magicmirror-1">MagicMirror-Installation und -Konfiguration</a>
+- <a href="#pm2-prozessmanager">PM2-Einrichtung</a>
+- <a href="#module">Modulintegration</a>
+- <a href="#icloud-sync">iCloud-Synchronisation</a>
+- <a href="#energieeinstellungen">Energieeinstellungen</a>
+- <a href="#troubleshooting">Troubleshooting</a>
 
 ![firefox_paLmI2esZq](https://github.com/user-attachments/assets/daea53ea-5ee3-405f-8d06-d7801bda195f)
 
