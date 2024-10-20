@@ -20,7 +20,7 @@ Die Anleitung ist in mehrere Abschnitte unterteilt:
 ![FRi9SFMjf9](https://github.com/user-attachments/assets/309bbf45-e353-4b7e-92d4-286916ed41d5)
 
 
-## <h1 id="vorbereitung">**Vorbereitung**</h1>
+## **Vorbereitung**
 
 ### ***System aktualisieren***
 
