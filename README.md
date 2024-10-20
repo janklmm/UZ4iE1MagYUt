@@ -1,7 +1,4 @@
 # MagicMirror
-![firefox_paLmI2esZq](https://github.com/user-attachments/assets/f054f847-1157-4e94-a0d8-0d9e26394285)
-![FRi9SFMjf9](https://github.com/user-attachments/assets/b4c48ceb-4b55-48cd-8f54-02b1770d4130)
-
 
 ## **Vorwort**
 
@@ -9,14 +6,21 @@ Diese Anleitung beschreibt die Installation eines MagicMirror auf einem Raspberr
 
 Die Anleitung ist in mehrere Abschnitte unterteilt:
 
-- Systemvorbereitung und Software-Installation
+[Systemvorbereitung und Software-Installation](#vorbereitung)
+- <a href="#vorbereitung">Systemvorbereitung und Software-Installation</a>
 - MagicMirror-Installation und -Konfiguration
 - PM2-Einrichtung
 - Modulintegration
 - iCloud-Synchronisation
+- Energieeinstellungen
 - Troubleshooting
 
-## **Vorbereitung**
+![firefox_paLmI2esZq](https://github.com/user-attachments/assets/daea53ea-5ee3-405f-8d06-d7801bda195f)
+
+![FRi9SFMjf9](https://github.com/user-attachments/assets/309bbf45-e353-4b7e-92d4-286916ed41d5)
+
+
+## <h1 id="vorbereitung">**Vorbereitung**</h1>
 
 ### ***System aktualisieren***
 
@@ -44,7 +48,7 @@ lo        no wireless extensions.
 eth0      no wireless extensions.
 
 wlan0     IEEE 802.11  ESSID:"FRITZ!Box 6660 Cable NA"
-          Mode:Managed  Frequency:2.467 GHz  Access Point: 16:DD
+          Mode:Managed  Frequency:2.467 GHz  Access Point: 09:16:DD
           Bit Rate=72.2 Mb/s   Tx-Power=31 dBm
           Retry short limit:7   RTS thr:off   Fragment thr:off
           Power Management:on
@@ -104,7 +108,7 @@ lo        no wireless extensions.
 eth0      no wireless extensions.
 
 wlan0     IEEE 802.11  ESSID:"FRITZ!Box 6660 Cable NA"
-          Mode:Managed  Frequency:2.467 GHz  Access Point: :09:16:DD
+          Mode:Managed  Frequency:2.467 GHz  Access Point: 09:16:DD
           Bit Rate=72.2 Mb/s   Tx-Power=31 dBm
           Retry short limit:7   RTS thr:off   Fragment thr:off
           Power Management:off
@@ -156,9 +160,9 @@ sudo apt install npm
 ***Vorbereitung für nodejs***
 
 
-💡 Die “normale” Installation von nodejs installiert v19.x, MagicMirror benötigt 20.x - 22.x
-
+💡Die “normale” Installation von nodejs installiert v19.x, MagicMirror benötigt 20.x - 22.x
 Deswegen nehme ich 20.x
+
 
 ```
 sudo apt install -y ca-certificates curl gnupg
@@ -185,6 +189,8 @@ sudo apt update
 ```
 sudo apt install nodejs
 ```
+
+---
 
 ## **MagicMirror**
 
@@ -237,6 +243,8 @@ ipWhitelist: ["127.0.0.1",
               "192.168.178.49"],     
 ```
 
+---
+
 ## **PM2 (Prozessmanager)**
 
 ### ***Installation PM2***
@@ -249,8 +257,8 @@ sudo npm install -g pm2
 pm2 startup
 ```
 
+💡Es gibt eine Befehlsausgabe, diesen ausgegebenen Befehl kopieren, einfügen und mit Enter drücken
 
-💡 Es gibt eine Befehlsausgabe, diesen ausgegebenen Befehl kopieren, einfügen und mit Enter drücken
 
 ```
 sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi
@@ -283,6 +291,8 @@ pm2 start mm.sh
 ```
 pm2 save
 ```
+
+---
 
 ## **Module**
 
@@ -422,6 +432,8 @@ Diese Module sind die, die ich aktuell auf meinem MagicMirror verwende. Sie kön
     ```
     
 
+---
+
 ## **iCloud Sync**
 
 ### ***Vorbereitung***
@@ -448,9 +460,12 @@ nano ~/.vdirsyncer/config
 
 ### ***Config für iCloud Sync***
 
-💡 Um sich bei Apple anzumelden, benötigt man ein App-spezifisches Passwort. Dieses wird dann für die Konfiguration verwendet.. https://account.apple.com/
+💡Um sich bei Apple anzumelden, benötigt man ein App-spezifisches Passwort. Dieses wird dann für die Konfiguration verwendet.. https://account.apple.com/
 
-💡 Der zu nutzende Kalender muss öffentlich sein. Öffne dazu auf dem iPhone die Kalender-App, wähle den gewünschten Kalender aus (tippe auf das "i"), scrolle nach unten und aktiviere "Öffentlicher Kalender". Trotzdem hat niemand von außen Zugriff auf den Kalender, solange der generierte Link nicht weitergegeben wird.
+💡Der zu nutzende Kalender muss öffentlich sein. Öffne dazu auf dem iPhone die Kalender-App, wähle den gewünschten Kalender aus (tippe auf das "i"), scrolle nach unten und aktiviere "Öffentlicher Kalender". 
+
+Trotzdem hat niemand von außen Zugriff auf den Kalender, solange der generierte Link nicht weitergegeben wird.
+
 
 ```
 # vdirsyncer configuration for MagicMirror.
@@ -530,9 +545,9 @@ vdirsyncer discover
 Discovering collections for pair iCloud_to_MagicMirror
 Mirror:
 iCloud:
-  - "25CB285C-E163-4E0E-B420-C3F7C00" ("Arbeit")
-  - "9221FEE8-E8B4-4D07-9402-86319EC" ("Urlaub")
-  - "953A5477-E405-4ED6-A5C3-473CC95" ("Alles andere")
+  - "25CB285C-E163-4EB7C00" ("Arbeit")
+  - "9221FEE8-E8B4-4D09919EC" ("Urlaub")
+  - "953A5477-E405-4EACC95" ("Alles andere")
 warning: No collection "HERE-GOES-THE-UUID-OF-THE-CALENDAR-YOU-WANT-TO-SYNC" found for storage Mirror.
 Should vdirsyncer attempt to create it? [y/N]:
 
@@ -542,16 +557,11 @@ Should vdirsyncer attempt to create it? [y/N]:
 
 ### ***Einfügen der Kalender in ~/.vdirsyncer/config***
 
-<aside>
-
-
-💡 collections = [”HERE-GOES-THE-UUID-OF-THE-CALENDAR-YOU-WANT-TO-SYNC”]
-
-</aside>
+💡collections = [”HERE-GOES-THE-UUID-OF-THE-CALENDAR-YOU-WANT-TO-SYNC”]
 
 ### ***Beispiel der collections***
+💡collections = ["3A56A-1C35-4183-9137-D6138", "392AD-278C-4EAB-AF16-94459"]
 
-💡collections = ["3A86A-1C35-4183-937-6138", "3920AD-278C-4EAB-AF16-D259"]
 
 ### ***Erstellen der .ics Datei***
 
@@ -655,8 +665,8 @@ In der Konfiguration gibt es eine Funktion (showEnd), die das Ende eines Ereigni
 **Die Anzeige in MM sieht wie folgt aus:**
 
 **Jan Urlaub - 16. Dez**
-![firefox_0FdFJeDVoA](https://github.com/user-attachments/assets/f2fcd626-9184-4007-9054-dd2b90b58d42)
 
+![firefox_0FdFJeDVoA](https://github.com/user-attachments/assets/04933e56-3615-4917-a008-380d7d08655b)
 
 **Fehleranalyse**:
 
@@ -672,14 +682,115 @@ Statt ganztägiger Ereignisse präzise Zeitangaben verwenden.
 
 **Jan Urlaub - 16. Dez - 03. Jan**
 
-![firefox_ATH1ZEXDBj](https://github.com/user-attachments/assets/bb1de1c9-c477-402f-9179-8b1b4588d162)
-
-
+![firefox_ATH1ZEXDBj](https://github.com/user-attachments/assets/6149853d-655b-49dc-8117-df1d8227e890)
 
 
 Diese Methode zeigt in der Übersicht genau das an, was ich haben möchte.
 
+---
+
+# ***Energieeinstellungen***
+
+Um den Stromverbrauch des Raspberry Pi zu reduzieren, nutze ich die Automatisierung von Cron.d für nächtliche Abschaltungen. 
+
+Das System soll sich zu einer festgelegten Uhrzeit selbst herunterfahren. Zuvor wird der MagicMirror ordnungsgemäß beendet, um mögliche Schäden zu vermeiden.
+
+### ***Crontab System***
+
+```
+sudo crontab -e
+```
+
+Bei der ersten Verwendung wird nach einem bevorzugten Texteditor für die Bearbeitung des Crontabs gefragt. Option 1 (Nano) ist ein benutzerfreundlicher und einfach zu bedienender Texteditor. Nach der Auswahl öffnet sich die Crontab-Datei zur Bearbeitung.
+
+Um den Raspberry Pi zu einer festgelegten Zeit herunterzufahren, ist folgende Zeile in die Cron-Konfiguration einzufügen:
+
+```
+# System wird jeden Tag runtergefahren
+56 21 * * * sudo systemctl poweroff
+
+# System wird Montag bis Donnerstag runtergefahren
+56 21 * * 1-4 sudo systemctl poweroff
+# System wird Freitag bis Sonntag runtergefahren
+31 22 * * fri,sat,sun sudo systemctl poweroff
+```
+
+Das System verarbeitet die Zeitangaben von rechts nach links. Demnach steht 55 für die Minute und 21 für die Stunde. 
+
+![chrome_vkL7K3WToQ](https://github.com/user-attachments/assets/e9dd1f62-4acb-4b6f-9a98-d95386eb49ed)
+
+
+Ein Online-Tool zur Umrechnung und Anzeige von Cron-Ausdrücken ist hier verfügbar: https://it-tools.tech/crontab-generator
+
+Das Tool ist auch als Offline-Variante zum Selbsthosten verfügbar – ich kann es nur empfehlen.
+
+https://github.com/CorentinTh/it-tools
+
+### ***Crontab MagicMirror***
+
+PM2 bietet zwar eine eigene Cron-Funktionalität, diese beschränkt sich jedoch auf das Neustarten von Prozessen. Für unseren Anwendungsfall ist diese Funktion nicht erforderlich.
+
+Aus diesem Grund wird dafür ebenfalls ein Cronjob erstellt, allerdings mit einer Besonderheit: Es ist wichtig, diesen Job ohne sudo zu erstellen. "Normale" Cron-Jobs werden mit sudo erstellt, da sie direkt aufs System zugreifen sollen. 
+
+### ***Beispiel***
+
+Wenn man den Befehl 
+
+```
+pm2 restart mm
+```
+
+eingibt, geschieht genau das, was man erwartet: MagicMirror startet neu. Gibt man den Befehl jedoch mit sudo ein, erscheint folgende Meldung:
+
+```
+[PM2][ERROR] Process or Namespace mm not found
+```
+
+Da die MagicMirror-Instanz ohne sudo erstellt wurde, kann sie auch nicht als Superuser geöffnet werden. 
+
+### ***Erstellen Crontab PM2***
+
+```
+nano mmstop.sh
+```
+
+```
+pm2 restart mm
+```
+
+```
+sudo chmod +x mmstop.sh
+```
+
+```
+crontab -e
+```
+
+```
+# System neustarten jeden tag
+55 21 * * * sh /home/jan/mmstop.sh
+
+# System stop jeden Tag von Montag - Donnerstag
+55 21 * * 1-4 sh /home/jan/mmstop.sh
+# System stop jeden Tag Freitag - Sonntag
+30 22 * * fri,sat,sun sh /home/jan/mmstop.sh
+```
+
+Dies stoppt MM. Um MagicMirror neu zu starten, ersetze "stop" durch "restart" im Befehl. Es können auch mehrere Befehle verwendet werden. Wichtig ist, dass jeder Befehl in einer eigenen Zeile steht.
+
+Um die Logdateien von PM2 täglich zu bereinigen, kann ein zusätzlicher Befehl in die mm.sh-Datei eingefügt werden.
+
+```
+pm2 flush mm
+```
+
+Dieser Befehl muss an erster Stelle stehen. Dadurch werden bei jedem Neustart des MagicMirrors die Logdateien bereinigt.
+
+Alternativ kann auch ein Shell-Skript geschrieben und dieses in Crontab eingefügt werden. Siehe mmstop.sh
+
 # **Troubleshooting**
+
+Um nicht ständig Logdateien über das Terminal auslesen zu müssen, bietet WinSCP eine praktische Alternative: https://winscp.net/eng/docs/lang:de
 
 ### PM2
 
@@ -705,4 +816,14 @@ cat /home/$USER/.pm2/logs/mm-out.log   # Auslesen des Event-Logs
 
 ```
 journalctl --user -u vdirsyncer -r
+```
+
+### ***WORK IN PROGRESS — Neustart mit Cron.d — WORK IN PROGRESS***
+
+https://www.dzombak.com/blog/2023/12/Maintaining-a-solid-WiFi-connection-on-Raspberry-Pi.html
+
+https://github.com/cdzombak/dotfiles/blob/master/linux/pi/wifi-check.sh
+
+```
+nano /usr/local/bin/wifi-check.sh
 ```
