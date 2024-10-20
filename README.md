@@ -710,10 +710,10 @@ Um den Raspberry Pi zu einer festgelegten Zeit herunterzufahren, ist folgende Ze
 # System wird jeden Tag runtergefahren
 56 21 * * * sudo systemctl poweroff
 
-# System wird Montag bis Donnerstag runtergefahren
-56 21 * * 1-4 sudo systemctl poweroff
-# System wird Freitag bis Sonntag runtergefahren
-31 22 * * fri,sat,sun sudo systemctl poweroff
+# System wird Sonntag bis Donnerstag runtergefahren
+56 21 * * 0-4 sudo systemctl poweroff
+# System wird Freitag bis Samstag runtergefahren
+31 22 * * 5-6 sudo systemctl poweroff
 ```
 
 Das System verarbeitet die Zeitangaben von rechts nach links. Demnach steht 55 für die Minute und 21 für die Stunde. 
@@ -771,10 +771,10 @@ crontab -e
 # System neustarten jeden tag
 55 21 * * * sh /home/jan/mmstop.sh
 
-# System stop jeden Tag von Montag - Donnerstag
-55 21 * * 1-4 sh /home/jan/mmstop.sh
-# System stop jeden Tag Freitag - Sonntag
-30 22 * * fri,sat,sun sh /home/jan/mmstop.sh
+# System stop jeden Tag von Sonntag - Donnerstag
+55 21 * * 0-4 sh /home/jan/mmstop.sh
+# System stop jeden Tag Freitag - Samstag
+30 22 * * 5-6 sh /home/jan/mmstop.sh
 ```
 
 Dies stoppt MM. Um MagicMirror neu zu starten, ersetze "stop" durch "restart" im Befehl. Es können auch mehrere Befehle verwendet werden. Wichtig ist, dass jeder Befehl in einer eigenen Zeile steht.
