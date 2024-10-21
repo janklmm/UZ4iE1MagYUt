@@ -12,7 +12,9 @@ Die Anleitung ist in mehrere Abschnitte unterteilt:
 - <a href="#module">Modulintegration</a>
 - <a href="#icloud-sync">iCloud-Synchronisation</a>
 - <a href="#energieeinstellungen">Energieeinstellungen</a>
+- <a href="#logdateien-via-scp-verschicken">Logdateien via SCP verschicken</a>
 - <a href="#troubleshooting">Troubleshooting</a>
+
 
 ![firefox_paLmI2esZq](https://github.com/user-attachments/assets/daea53ea-5ee3-405f-8d06-d7801bda195f)
 
@@ -788,6 +790,45 @@ pm2 flush mm
 Dieser Befehl muss an erster Stelle stehen. Dadurch werden bei jedem Neustart des MagicMirrors die Logdateien bereinigt.
 
 Alternativ kann auch ein Shell-Skript geschrieben und dieses in Crontab eingefügt werden. Siehe mmstop.sh
+
+
+Wenn man die Logdateien später einsehen möchte und einen zweiten Raspberry Pi oder ein anderes Linux-System zur Verfügung hat, kann man dies ganz einfach über den Befehl "SCP" tun. Diesen Befehl kann man ebenfalls als Cronjob einrichten und täglich automatisch ausführen lassen – kurz bevor sich das System ausschaltet, da die Dateien am nächsten Tag gelöscht werden. Dies entspricht der Konfiguration im Abschnitt "Energieeinstellungen".
+
+# **Logdateien via SCP verschicken**
+<a href="#vorwort">nach oben</a>
+
+Wenn man die Logdateien später einsehen möchte und einen zweiten Raspberry Pi oder ein anderes Linux-System zur Verfügung hat, kann man dies ganz einfach über den Befehl "SCP" tun. Diesen Befehl kann man ebenfalls als Cronjob einrichten und täglich automatisch ausführen lassen – kurz bevor sich das System ausschaltet, da die Dateien am nächsten Tag gelöscht werden. Dies entspricht der Konfiguration im Abschnitt "Energieeinstellungen".
+
+### ***Erstellen des Scripts***
+
+```
+nano logsenden.sh
+```
+
+```
+scp ~/log/mm_error_log jan@192.168.178.2:/media/devmon/TOSHIBA\ EXT//MirrorPi/`date +%d-%m-%Y`-mm_error
+```
+
+Mit diesem Befehl wird die Logdatei auf eine Festplatte geschickt, die an meinem 24/7 Pi angeschlossen ist.
+
+Ein Nachteil ist, dass bei jeder Ausführung des Befehls ein Passwort eingegeben werden muss.
+
+### ***Senden mit automatischer Passwort Eingabe***
+
+Es gibt verschiedene Möglichkeiten, das Passwort mitzuschicken. Man kann einen SSH-Key auf den Pis einrichten oder beispielsweise sshpass nutzen. Der Einfachheit halber habe ich mich für sshpass entschieden.
+
+```
+sudo apt install sshpass
+```
+
+Nach der Installation einfach die “logsenden.sh” öffnen und folgendes VOR den SCP befehl setzen
+
+```
+sshpass -p "PASSWORT" scp ....
+```
+
+Damit muss kein Passwort mehr händisch eingetragen werden. Das Script macht alles automatisch.
+Ich spare mir an dieser Stelle die detaillierte Konfiguration des Cronjobs, da sie identisch mit der im Abschnitt "Energieeinstellungen" ist. Wichtig zu beachten ist, dass der Cronjob ohne sudo ausgeführt werden muss – aus den oben genannten Gründen.
 
 # **Troubleshooting**
 <a href="#vorwort">nach oben</a>
