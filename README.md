@@ -806,10 +806,15 @@ nano logsenden.sh
 ```
 
 ```
-scp ~/log/mm_error_log jan@192.168.178.2:/media/devmon/TOSHIBA\ EXT//MirrorPi/`date +%d-%m-%Y`-mm_error
+scp PFAD DER DATEI jan@192.168.178.2:/media/devmon/TOSHIBA\ EXT//MirrorPi/`date +%d-%m-%Y`-mm_error
 ```
 
 Mit diesem Befehl wird die Logdatei auf eine Festplatte geschickt, die an meinem 24/7 Pi angeschlossen ist.
+Da die Datei jeden Tag den gleichen Namen hat, kommt am Ende oder am Anfang, wie oben geschrieben dieser Zusatz
+
+```
+`date +%d-%m-%Y`
+```
 
 Ein Nachteil ist, dass bei jeder Ausführung des Befehls ein Passwort eingegeben werden muss.
 
