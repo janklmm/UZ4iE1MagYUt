@@ -804,7 +804,9 @@ Wenn man die Logdateien später einsehen möchte und einen zweiten Raspberry Pi 
 ```
 nano logsenden.sh
 ```
-
+```
+sudo chmod +x logsenden.sh
+```
 ```
 scp PFAD DER DATEI jan@192.168.178.2:/media/devmon/TOSHIBA\ EXT//MirrorPi/`date +%d-%m-%Y`-mm_error
 ```
