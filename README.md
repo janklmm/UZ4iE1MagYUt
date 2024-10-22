@@ -797,6 +797,7 @@ Wenn man die Logdateien später einsehen möchte und einen zweiten Raspberry Pi 
 # **Logdateien via SCP verschicken**
 <a href="#vorwort">nach oben</a>
 
+Um das Senden zu ermöglichen, ist es ratsam, sich zunächst einmal über SSH mit dem empfangenden Pi zu verbinden. Dies gewährleistet den Austausch der SSH-Schlüssel.
 Wenn man die Logdateien später einsehen möchte und einen zweiten Raspberry Pi oder ein anderes Linux-System zur Verfügung hat, kann man dies ganz einfach über den Befehl "SCP" tun. Diesen Befehl kann man ebenfalls als Cronjob einrichten und täglich automatisch ausführen lassen – kurz bevor sich das System ausschaltet, da die Dateien am nächsten Tag gelöscht werden. Dies entspricht der Konfiguration im Abschnitt "Energieeinstellungen".
 
 ### ***Erstellen des Scripts***
